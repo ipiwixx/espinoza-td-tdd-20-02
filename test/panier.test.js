@@ -234,7 +234,7 @@ describe("Testing the Panier Functions", function () {
     let r1 = new Remise('Nike20', 150);
     p22.addArticle(pr1, 1);
     p22.addArticle(pr2, 1);
-    p22.applyRemiseProduct(r1, pr1);
+    p22.applyRemiseProduct(r1, pr1, remises);
     expect(p22.montantTotal).to.equal(230);
     done();
   });
@@ -251,8 +251,8 @@ describe("Testing the Panier Functions", function () {
     let r1 = new Remise('adidas40', 20);
     p23.addArticle(pr1, 1);
     p23.addArticle(pr2, 1);
-    p23.applyRemiseProduct(r1, pr1);
-    expect(p23.montantTotal).to.equal(115);
+    p23.applyRemiseProduct(r1, pr1, remises);
+    expect(p23.montantTotal).to.equal(330);
     done();
   });
 });
