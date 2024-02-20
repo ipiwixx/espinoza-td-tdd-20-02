@@ -255,4 +255,22 @@ describe("Testing the Panier Functions", function () {
     expect(p23.montantTotal).to.equal(230);
     done();
   });
+
+  it("24. Appliquer 2 fois la même remise à des produits différents", function (done) {
+    let pr1 = new Produit(1 ,'chaussure', 18, 120);
+    let pr2 = new Produit(2, 'veste', 23, 110);
+    let p24 = new Panier();
+    let r1 = new Remise('Nike20', 50);
+    remises = [
+      r1,
+      new Remise('RemiseSpeciale', 15),
+      new Remise('Promo', 30),
+    ];
+    p24.addArticle(pr1, 1);
+    p24.addArticle(pr2, 1);
+    p24.applyRemiseProduct(r1, pr1, remises);
+    p24.applyRemiseProduct(r1, pr2, remises);
+    expect(p24.montantTotal).to.equal(115);
+    done();
+  });
 });
