@@ -58,13 +58,12 @@ class Panier {
       if (listeRemise.includes(remise)) {
         if (!produit.remiseUsed.some((item) => item === remise)) {
           produit.remiseUsed.push(remise);
-          this.montantTotal +=
-            this.montantTotal -
-            produit.montant * (remise.pourcentage / 100); // Obtenez le montant total actuel
+          this.montantTotal =
+            this.getMontantTotal() - produit.montant * (remise.pourcentage / 100); // Obtenez le montant total actuel
         } else {
           this.montantTotal = this.getMontantTotal();
         }
-      } else  {
+      } else {
         this.montantTotal = this.getMontantTotal();
       }
     } else {
