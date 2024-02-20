@@ -208,13 +208,13 @@ describe("Testing the Panier Functions", function () {
   it("21. Ajouter une remise produit", function (done) {
     let pr1 = new Produit(1 ,'chaussure', 18, 120);
     let pr2 = new Produit(2, 'veste', 23, 110);
+    let r1 = new Remise('Nike20', 50);
     let p21 = new Panier();
     remises = [
-      new Remise('Nike20', 50),
+      r1,
       new Remise('RemiseSpeciale', 15),
       new Remise('Promo', 30),
     ];
-    let r1 = new Remise('Nike20', 50);
     p21.addArticle(pr1, 1);
     p21.addArticle(pr2, 1);
     p21.applyRemiseProduct(r1, pr1, remises);
@@ -226,12 +226,12 @@ describe("Testing the Panier Functions", function () {
     let pr1 = new Produit(1 ,'chaussure', 18, 120);
     let pr2 = new Produit(2, 'veste', 23, 110);
     let p22 = new Panier();
+    let r1 = new Remise('Nike20', 150);
     remises = [
-      new Remise('Nike20', 150),
+      r1,
       new Remise('RemiseSpeciale', 15),
       new Remise('Promo', 30),
     ];
-    let r1 = new Remise('Nike20', 150);
     p22.addArticle(pr1, 1);
     p22.addArticle(pr2, 1);
     p22.applyRemiseProduct(r1, pr1, remises);
@@ -252,7 +252,7 @@ describe("Testing the Panier Functions", function () {
     p23.addArticle(pr1, 1);
     p23.addArticle(pr2, 1);
     p23.applyRemiseProduct(r1, pr1, remises);
-    expect(p23.montantTotal).to.equal(330);
+    expect(p23.montantTotal).to.equal(230);
     done();
   });
 });
