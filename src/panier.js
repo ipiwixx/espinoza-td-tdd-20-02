@@ -61,7 +61,11 @@ class Panier {
           this.montantTotal =
             this.getMontantTotal() -
             produit.montant * (remise.pourcentage / 100); // Obtenez le montant total actuel
+        } else {
+          this.montantTotal = this.getMontantTotal();
         }
+      } else  {
+        this.montantTotal = this.getMontantTotal();
       }
     } else {
       this.montantTotal = this.getMontantTotal();
