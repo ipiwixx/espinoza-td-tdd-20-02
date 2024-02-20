@@ -248,7 +248,7 @@ describe("Testing the Panier Functions", function () {
       new Remise('RemiseSpeciale', 15),
       new Remise('Promo', 30),
     ];
-    let r1 = new Remise('adidas40', 40);
+    let r1 = new Remise('adidas40', 20);
     p23.addArticle(pr1, 1);
     p23.addArticle(pr2, 1);
     p23.applyRemiseProduct(r1, pr1);
